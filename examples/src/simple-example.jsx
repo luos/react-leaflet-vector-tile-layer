@@ -237,8 +237,8 @@ class SimpleExample extends React.Component {
     constructor() {
         super();
         this.state = {
-            lat: 47.040182144806664,
-            lng: 9.667968750000002,
+            lat: -31.9505,
+            lng: 115.8605,
             zoom: 10
         };
     }
@@ -259,7 +259,7 @@ class SimpleExample extends React.Component {
                             A pretty CSS3 popup. <br /> Easily customizable.
                         </Popup>
                     </Marker>
-                    <Overlay name='Vector Tiles'>
+                    <Overlay checked={true} name='Vector Tiles'>
                         <WrappedVectorTileLayer {...openmaptilesVectorTileOptions} url={openmaptilesUrl} />
                     </Overlay>
                 </LayersControl>

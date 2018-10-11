@@ -1,11 +1,15 @@
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "examples/src/index.html"),
-    filename: "./index.html"
-});
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+
 module.exports = {
-    entry: path.join(__dirname, "examples/src/index.js"),
+    entry: {
+        index: path.join(__dirname, 'src/index.js'),
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js',
+        // chunkFilename: '[name]-[chunkhash].js',
+    },
     module: {
         rules: [
             {
@@ -19,11 +23,32 @@ module.exports = {
             }
         ]
     },
-    plugins: [htmlWebpackPlugin],
+    plugins: [
+        new CleanWebpackPlugin(['dist'])
+    ],
     resolve: {
         extensions: [".js", ".jsx"]
     },
-    devServer: {
-        port: 3001
+    externals: {
+        '@mapbox/vector-tile': '@mapbox/vector-tile',
+        'debug': 'debug',
+        'leaflet': 'leaflet',
+        'leaflet-vector-tile-layer': 'leaflet-vector-tile-layer',
+        'pbf': 'pbf',
+        'prop-types': {
+            commonjs: 'prop-types',
+            commonjs2: 'prop-types',
+            amd: 'prop-types',
+            umd: 'prop-types',
+        },
+        react: {
+            commonjs: "react",
+            commonjs2: "react",
+            amd: "React",
+            root: "React",
+            umd: 'react',
+        },
+        'react-dom': 'react-dom',
+        'react-leaflet': 'react-leaflet'
     }
 };
