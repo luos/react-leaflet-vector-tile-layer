@@ -1,6 +1,6 @@
 {
     "name": "react-leaflet-vector-tile-layer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "React wrapper for Leaflet.VectorTileLayer",
     "main": "dist/index.js",
     "scripts": {
