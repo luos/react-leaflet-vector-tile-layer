@@ -2,12 +2,14 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
+    target: 'web',
     entry: {
         index: path.join(__dirname, 'src/index.js'),
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+        libraryTarget: 'commonjs2',
         // chunkFilename: '[name]-[chunkhash].js',
     },
     module: {
