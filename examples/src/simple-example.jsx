@@ -230,7 +230,9 @@ const openmaptilesVectorTileOptions = {
     vectorTileLayerStyles: vectorTileStyling,
     subdomains: '0123',
     accessKey: 'UmmATPUongHdDmIicgs7',
-    maxZoom: 14
+    maxDetailZoom: 14,
+    minDetailZoom: 5,
+    minZoom: 5,
 };
 
 class SimpleExample extends React.Component {
@@ -242,8 +244,6 @@ class SimpleExample extends React.Component {
             zoom: 10
         };
     }
-    // openmaptilesPbfLayer = L.vectorGrid.protobuf(openmaptilesUrl, openmaptilesVectorTileOptions).addTo(map);
-
 
     render() {
         const position = [this.state.lat, this.state.lng];
